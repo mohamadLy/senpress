@@ -1,12 +1,27 @@
+<style media="screen">
+  h2.little-big-header {
+    font-size: 500%;
+  }
+  .signup_callout {
+    background-color: black;
+    height: 200%;
+    height: 50px;
+    text-align: center;
+    padding-top: 10px;
+  }
+</style>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h2>Log in</h2>
-      <div class="social-buttons">
-        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-        <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-      </div>
-      or
+    <div class="col-md-6 col-md-offset-3">
+      <%-# This would be in future release
+        #div class="social-buttons">
+        #<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+        #<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+        #</div>
+        #or
+      -%>
+      <h2 class="little-big-header">Log in!</h2>
+
     <div class="form" role="form" id="login-nav">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|%>
         <div class="field form-group">
@@ -20,12 +35,6 @@
           <%= %>
         </div>
 
-         <div class="action form-group">
-           <%= f.submit "Sign in", class: 'btn btn-primary btn-block'%>
-         </div>
-
-        <%= render "devise/shared/links" %>
-
         <% if devise_mapping.rememberable? -%>
           <div class="field form-group">
             <%= f.check_box :remember_me %>
@@ -33,13 +42,13 @@
           </div>
         <% end -%>
 
-    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-      <div class="bottom text-center">
-        <%= link_to "New here ? Join Us", new_registration_path(resource_name) %><br />
-      </div>
-    <% end -%>
+         <div class="action form-group">
+           <%= f.submit "Sign in", class: 'btn btn-primary btn-block'%>
+         </div>
+
         <% end %>
       </div>
+      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>

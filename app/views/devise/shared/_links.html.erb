@@ -8,8 +8,8 @@
   <% end -%>
 </div>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' && controller_name != 'sessions' %>
-  <div class="bottom text-center">
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <div class="bottom text-center signup_callout">
     <%= link_to "New here ? Join Us", new_registration_path(resource_name) %><br />
   </div>
 <% end -%>

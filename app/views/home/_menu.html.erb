@@ -30,19 +30,24 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text">Already have an account?</p></li>
-        <li>
-          <%= link_to "users/sign_up" do %>
-             <span class="glyphicon glyphicon-user"></span> Sign Up
-          <% end %>
-        </li>
+        <% if user_signed_in? %>
+          <% #show logout button %>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn" %>
+        <% else %>
+          <li><p class="navbar-text">Already have an account?</p></li>
+          <li>
+            <%= link_to new_user_registration_path do %>
+               <span class="glyphicon glyphicon-user"></span> Sign Up
+            <% end %>
+          </li>
 
-        <li class="dropdown">
-          <%= link_to "users/sign_in" do %>
-            <span class="glyphicon glyphicon-log-in"></span>
-            <b> Login</b>
-          <% end %>
-        </li>
+          <li class="dropdown">
+            <%= link_to new_user_session_path do %>
+              <span class="glyphicon glyphicon-log-in"></span>
+              <b> Login</b>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
