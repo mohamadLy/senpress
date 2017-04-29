@@ -19,6 +19,7 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
+
  body{
     background:url('background-image.jpg');
     padding:50px;
@@ -78,4 +79,13 @@
 }
 #signup_pag {
   background-image: none;
+}
+
+.paragraph {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+.paragraph h2 {
+
 }

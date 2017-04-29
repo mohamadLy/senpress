@@ -1,1 +1,68 @@
-<%= @user.profile.inspect %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div style="padding-top:50px;"></div>
+        <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="media">
+                  <div align="center">
+                    <% if @user[:avatar] == nil %>
+                        <img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px" height="300px">
+                      <% else %>
+                        <%= image_tag @user.avatar.url, class: "thumbnail img-responsive" %>
+                        <%= image_tag @user.avatar.url(:thumb) %>
+                        <%= image_tag @user.avatar.url(:small) %>
+                    <% end %>
+
+
+                  </div>
+                  <div class="media-body">
+                      <hr>
+                      <h3><strong><%= "#{@user[:firstname]} #{@user[:lastname]}" %>
+                      <span class="glyphicon glyphicon-pencil"></span></strong>
+
+                      <h3><strong>Bio</strong></h3>
+                      <p>Un peuple, un but, une foie. <strong><span class="glyphicon glyphicon-pencil"></span></strong></p>
+                      <hr>
+                      <h3><strong>Email</strong></h3>
+                      <p><strong><%= "#{@user[:email]} "%><strong><span class="glyphicon glyphicon-pencil"></span></strong></p>
+                      <hr>
+                      <h3><strong>Journal préféré</strong></h3>
+                      <p>Observateur <strong><span class="glyphicon glyphicon-pencil"></span></strong></p></p>
+                      <hr>
+                      <h3><strong>Autre </strong><strong><span class="glyphicon glyphicon-pencil"></span></strong></h3>
+                      <p>Unknown</p>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <?php include 'user_body_page.php' ?>
+            <hr> <!-- Semantique break. -->
+            <!-- Simple post content example. -->
+            <?php include 'user_post_page.php' ?>
+            <!-- Reshare Example -->
+            <?php include 'user_comment_page.php' ?>
+            <!-- Sample post content with picture. -->
+            <?php include 'user_post_picture.php' ?>
+            <!-- Sample post content with comments. -->
+            <?php include 'user_post_wiht_comments.php' ?>
+        </div>
+
+        </div>
+      </div>
+
+    </div>
+    <script><?php include 'user_pageJs.js' ?></script>
+  </body>
+</html>
