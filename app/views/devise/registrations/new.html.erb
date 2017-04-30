@@ -1,3 +1,8 @@
+<style media="screen">
+   #error_explanation {
+    color: white;
+  }
+</style>
 <%= stylesheet_link_tag 'home' %>
 <div class="container" id="signup_page">
   <div class="row">
@@ -58,7 +63,7 @@
               </div>
             </div>
           </div>
-
+          <%= f.hidden_field :plan_id, :value => 1 %>
           <div class="actions">
             <%= f.submit "Sign up", class: 'btn btn-primary btn-lg btn-block login-button' %>
           </div>

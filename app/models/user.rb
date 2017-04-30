@@ -11,4 +11,6 @@ class User < ApplicationRecord
          default_url: "/images/default_avatar_:me-flat.png"
 
  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
+ belongs_to :plan
 end
